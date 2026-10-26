@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /send.php
+Allow: /
+
+Sitemap: https://inhouseagency.ru/sitemap.xml
