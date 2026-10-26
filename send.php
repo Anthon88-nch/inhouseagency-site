@@ -8,7 +8,7 @@
  *   MAIL_FROM — адрес отправителя на твоём домене (на Beget лучше создать такой ящик)
  *   TG_TOKEN / TG_CHAT — по желанию, чтобы заявки падали в Telegram
  */
-const MAIL_TO   = 'info@i-tend.ru';
+const MAIL_TO   = 'info@inhouseagency.ru';
 const MAIL_FROM = 'noreply@inhouseagency.ru';
 const TG_TOKEN  = '';
 const TG_CHAT   = '';

@@ -21,7 +21,7 @@ assets/fonts/         шрифт Onest (вариативный, кириллиц
 
 - **Яндекс.Метрика.** Вставь код счётчика в `<head>` файла `index.html` (там стоит комментарий), а номер счётчика — в `CONFIG.metrikaId` в `assets/js/main.js`.
   Цели, которые отправляются сами: `form_submit`, `form_telegram`, `click_phone`, `click_telegram`, `click_email`.
-- **Почта.** Сейчас везде `info@i-tend.ru`. Если заведёшь ящик на inhouseagency.ru — замени в `index.html`, `privacy.html`, `consent.html`, `send.php`.
+- **Почта.** Везде указан `info@inhouseagency.ru`. Ящик нужно создать в панели Beget → Почта (MX уже смотрят на Beget). Для `send.php` там же заведи `noreply@inhouseagency.ru`.
 - **Тексты** — прямо в `index.html`, всё на русском, без шаблонизаторов.
 
 ## Форма заявки
