@@ -215,7 +215,7 @@ button, input, textarea { font: inherit; color: inherit; }
 
 /* Ticker */
 .ticker { margin-top: clamp(56px, 8vw, 110px); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; padding: 22px 0; }
-.ticker__track { display: flex; width: max-content; gap: 48px; animation: ticker 40s linear infinite; }
+.ticker__track { display: flex; width: max-content; gap: 48px; animation: ticker 56s linear infinite; }
 .ticker__track span { font-size: clamp(18px, 2vw, 24px); font-weight: 500; letter-spacing: -.02em; white-space: nowrap; color: var(--ink-2); }
 @keyframes ticker { to { transform: translateX(calc(-50% - 24px)); } }
 .ticker:hover .ticker__track { animation-play-state: paused; }
