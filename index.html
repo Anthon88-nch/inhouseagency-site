@@ -6,7 +6,7 @@
 <title>inhouse agency — SEO, Яндекс.Директ, Авито и сайты | Набережные Челны</title>
 <meta name="description" content="Маркетинговый отдел без найма в штат: SEO, Яндекс.Директ, ведение Авито, сайты, карточки для маркетплейсов и нейрофотосессии. Набережные Челны и вся Россия.">
 <link rel="canonical" href="https://inhouseagency.ru/">
-<meta name="theme-color" content="#F2F2EF">
+<meta name="theme-color" content="#2A64AB">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="inhouse agency">
@@ -19,6 +19,8 @@
 <link rel="icon" href="/favicon-120.png" sizes="120x120" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/onest-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/oswald-700-caps.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/img/hero/cloud-main.webp" as="image" type="image/webp">
 <link rel="stylesheet" href="assets/css/style.css">
 <script type="application/ld+json">
 {
@@ -40,10 +42,11 @@
 <body>
 <a class="skip" href="#main">К содержанию</a>
 
-<header class="header" id="top">
+<header class="header is-sky" id="top">
   <div class="container header__in">
     <a class="header__logo" href="#top" aria-label="inhouse agency — на главную">
-      <img src="assets/img/logo.svg" alt="inhouse agency" width="150" height="67">
+      <img class="logo-dark" src="assets/img/logo.svg" alt="inhouse agency" width="150" height="67">
+      <img class="logo-light" src="assets/img/logo-light.svg" alt="" width="150" height="67" aria-hidden="true">
     </a>
     <nav class="nav" aria-label="Основное меню">
       <a href="#services">Услуги</a>
@@ -78,32 +81,71 @@
 <main id="main">
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="container hero__in">
-      <div class="hero__text">
-        <p class="chip reveal"><span class="chip__dot"></span>Набережные Челны · вся Россия</p>
-        <h1 class="hero__title reveal">Маркетинговый отдел для&nbsp;вашего бизнеса — <span class="accent">без&nbsp;найма в&nbsp;штат</span></h1>
-        <p class="hero__lead reveal">Сайт, SEO, Яндекс.Директ, Авито, карты и&nbsp;отзывы ведём в&nbsp;одних руках. Отвечаем за&nbsp;заявки, а&nbsp;не&nbsp;за&nbsp;красивые отчёты.</p>
-        <div class="hero__actions reveal">
-          <a class="btn btn--dark" href="#contacts">Получить план продвижения <span class="btn__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
-          <a class="btn btn--ghost" href="https://t.me/Anthon_Ovdin" target="_blank" rel="noopener" data-goal="click_telegram">Написать в Telegram</a>
+  <section class="hero hero--sky" id="hero">
+    <div class="hero__bg" aria-hidden="true">
+      <img class="hero__side hero__side--left" src="assets/img/hero/cloud-left.webp" alt="" width="738" height="763" decoding="async">
+      <img class="hero__side hero__side--right" src="assets/img/hero/cloud-right.webp" alt="" width="1087" height="521" decoding="async">
+    </div>
+
+    <div class="container">
+      <div class="hero__scene">
+        <h1 class="hero__title"><span>Вся нагрузка</span> <span>— на&nbsp;нас</span></h1>
+
+        <i class="hero__doodle hero__doodle--a"><svg viewBox="0 0 120 64" aria-hidden="true"><path d="M22 54 C8 54 4 40 14 33 C10 20 26 12 36 20 C40 6 64 2 72 18 C80 10 98 14 98 28 C112 28 116 46 104 54 Z" fill="#fff" stroke="#0B0B0C" stroke-width="3.5" stroke-linejoin="round"/></svg></i>
+        <i class="hero__doodle hero__doodle--b"><svg viewBox="0 0 120 64" aria-hidden="true"><path d="M22 54 C8 54 4 40 14 33 C10 20 26 12 36 20 C40 6 64 2 72 18 C80 10 98 14 98 28 C112 28 116 46 104 54 Z" fill="#fff" stroke="#0B0B0C" stroke-width="3.5" stroke-linejoin="round"/></svg></i>
+
+        <div class="hero__stage">
+          <img class="hero__cloud" src="assets/img/hero/cloud-main.webp" alt="" width="1276" height="674" fetchpriority="high">
+          <img class="hero__person" src="assets/img/hero/person.svg" alt="Человек спокойно сидит на облаке с телефоном — продвижением занимаемся мы" width="640" height="560">
+          <img class="hero__cloud-front" src="assets/img/hero/cloud-front.webp" alt="" width="869" height="310">
+          <a class="btn btn--lime hero__cta" href="#contacts">Обсудить проект <span class="btn__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+        </div>
+
+        <div class="hero__cards">
+          <div class="hcard hcard--a">
+            <span class="hcard__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.5-4.5M8 12l2-2 1.5 1.5L14 9"/></svg></span>
+            <p>Сайт растёт в&nbsp;поиске, пока вы&nbsp;отдыхаете</p>
+          </div>
+          <div class="hcard hcard--b">
+            <p class="hcard__title">Заявки приходят сами</p>
+            <p class="hcard__muted">Сайт · Авито · Карты · ВКонтакте</p>
+            <div class="hcard__row">
+              <span class="hcard__icons" aria-hidden="true">
+                <i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.6 2.6 14.4 0 17M12 3.5c-2.6 2.6-2.6 14.4 0 17"/></svg></i>
+                <i><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11.5H6.2Z"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg></i>
+                <i><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></svg></i>
+              </span>
+              <span class="hcard__new"><b></b>Новая заявка</span>
+            </div>
+          </div>
+          <div class="hcard hcard--c">
+            <svg class="hcard__bird" viewBox="0 0 120 96" aria-hidden="true">
+              <path d="M10 70 C6 52 12 38 24 30" fill="none" stroke="#0B0B0C" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M58 76 L56 92 M70 76 L72 92" stroke="#0B0B0C" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M40 60 C38 40 52 26 68 28 C80 30 90 40 92 52 L108 46 L96 60 C92 74 74 82 58 78 C48 76 42 70 40 60 Z" fill="#fff" stroke="#0B0B0C" stroke-width="3.5" stroke-linejoin="round"/>
+              <circle cx="58" cy="30" r="15" fill="#fff" stroke="#0B0B0C" stroke-width="3.5"/>
+              <path d="M44 28 L32 33 L44 37 Z" fill="#D9F65A" stroke="#0B0B0C" stroke-width="3" stroke-linejoin="round"/>
+              <circle cx="53" cy="27" r="2.6" fill="#0B0B0C"/>
+              <path d="M60 15 C58 8 64 4 66 10 M64 16 C66 9 72 8 70 15" fill="none" stroke="#0B0B0C" stroke-width="3" stroke-linecap="round"/>
+              <path d="M58 54 C66 66 80 64 86 54" fill="none" stroke="#0B0B0C" stroke-width="3.5" stroke-linecap="round"/>
+            </svg>
+            <div class="hcard__head"><p>Продвижение</p><span class="hcard__pill">Активно</span></div>
+            <p class="hcard__big">На&nbsp;автопилоте</p>
+            <div class="hcard__inner">
+              <span class="hcard__label">SEO · Директ · Авито</span>
+              <svg class="hcard__spark" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M2 54 C30 50 40 40 62 42 S96 30 118 28 S150 12 198 6" fill="none" stroke="#D9F65A" stroke-width="3" stroke-linecap="round"/><path d="M2 54 C30 50 40 40 62 42 S96 30 118 28 S150 12 198 6 V60 H2 Z" fill="url(#sparkfill)"/><defs><linearGradient id="sparkfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D9F65A" stop-opacity=".35"/><stop offset="1" stop-color="#D9F65A" stop-opacity="0"/></linearGradient></defs></svg>
+              <div class="hcard__foot"><span>ваш-сайт.рф</span><span class="hcard__toggle" aria-hidden="true"></span></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="serp reveal" aria-hidden="true">
-        <div class="serp__bar">
-          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
-          <span>продвижение сайта набережные челны</span><i class="serp__caret"></i>
-        </div>
-        <div class="serp__list">
-          <div class="serp__nums"><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div>
-          <div class="serp__items">
-            <div class="serp__it serp__it--0"><i></i><span><em></em><em></em></span></div>
-            <div class="serp__it serp__it--1"><i></i><span><em></em><em></em></span></div>
-            <div class="serp__it serp__it--2"><i></i><span><em></em><em></em></span></div>
-            <div class="serp__it serp__it--3"><i></i><span><em></em><em></em></span></div>
-            <div class="serp__it serp__it--me"><i></i><span><strong>ваш-сайт.рф</strong><em></em></span><mark>ТОП-1</mark></div>
-          </div>
+      <div class="hero__bottom">
+        <p class="hero__sub">Маркетинговый отдел для&nbsp;вашего бизнеса&nbsp;— без&nbsp;найма в&nbsp;штат</p>
+        <p class="hero__lead">Сайт, SEO, Яндекс.Директ, Авито, карты и&nbsp;отзывы ведём в&nbsp;одних руках. Вы&nbsp;занимаетесь своим делом&nbsp;— мы&nbsp;отвечаем за&nbsp;заявки.</p>
+        <div class="hero__actions">
+          <a class="btn btn--dark" href="#contacts">Получить план продвижения <span class="btn__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+          <a class="btn btn--ghost" href="https://t.me/Anthon_Ovdin" target="_blank" rel="noopener" data-goal="click_telegram">Написать в&nbsp;Telegram</a>
         </div>
       </div>
     </div>

@@ -24,9 +24,17 @@ document.addEventListener('click', (e) => {
 
 /* Шапка: линия при прокрутке */
 const header = document.querySelector('.header');
-const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+const skyHero = document.querySelector('.hero--sky');
+let menuOpen = false;
+const onScroll = () => {
+  header.classList.toggle('is-scrolled', window.scrollY > 8);
+  // Прозрачная шапка, пока под ней небо первого экрана
+  const onSky = !!skyHero && !menuOpen && skyHero.getBoundingClientRect().bottom > header.offsetHeight + 120;
+  header.classList.toggle('is-sky', onSky);
+};
 onScroll();
 window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', onScroll);
 
 /* Мобильное меню */
 const burger = document.querySelector('.burger');
@@ -35,6 +43,8 @@ const setMenu = (open) => {
   burger.setAttribute('aria-expanded', String(open));
   burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
   document.body.style.overflow = open ? 'hidden' : '';
+  menuOpen = open;
+  onScroll();
   if (open) {
     menu.hidden = false;
     requestAnimationFrame(() => menu.classList.add('is-open'));
