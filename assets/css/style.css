@@ -526,3 +526,79 @@ button, input, textarea { font: inherit; color: inherit; }
 .form__status p { margin-bottom: 12px; color: var(--ink-2); }
 .form__status.is-ok p { color: #1A8F4A; font-weight: 600; }
 .form__tg { padding: 0 22px; }
+
+/* ---------- Виджет-робот: вопрос в Telegram ---------- */
+.bot { position: fixed; right: clamp(12px, 2vw, 28px); bottom: clamp(12px, 2vw, 24px); z-index: 45; display: flex; flex-direction: column; align-items: flex-end; transition: bottom .3s var(--ease); }
+.bot__btn { position: relative; display: block; padding: 0; border: 0; background: none; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.bot__btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 12px; }
+.bot__svg {
+  display: block; width: 68px; height: auto; overflow: visible;
+  filter: drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff) drop-shadow(0 8px 10px rgba(11,11,12,.18));
+  transition: transform .25s var(--ease);
+}
+.bot__btn:hover .bot__svg { transform: translateY(-3px); }
+.bot__tip {
+  position: absolute; right: calc(100% + 6px); top: 26%; white-space: nowrap;
+  background: var(--ink); color: #fff; font-size: 13px; font-weight: 600; padding: 7px 12px; border-radius: 12px 12px 4px 12px;
+  opacity: 0; transform: translateX(6px); pointer-events: none; transition: opacity .3s, transform .3s var(--ease);
+}
+.bot.is-tip .bot__tip { opacity: 1; transform: none; }
+.bot.is-open .bot__tip, .bot.was-opened .bot__tip { opacity: 0 !important; }
+
+/* кадры анимации */
+.bot__arm--a, .bot__arm--b, .bot__blink { opacity: 0; }
+.bot__ant rect { animation: botAnt 1.6s steps(1) infinite; }
+@keyframes botAnt { 50% { fill: #fff; } }
+@media (prefers-reduced-motion: no-preference) {
+  .bot__body { animation: botBob 1.4s steps(1) infinite; }
+  .bot__eyes { animation: botEyes 4.6s steps(1) infinite; }
+  .bot__blink { animation: botBlink 4.6s steps(1) infinite; }
+  .bot__arm--down { animation: botDown 5s steps(1) infinite; }
+  .bot__arm--a { animation: botA 5s steps(1) infinite; }
+  .bot__arm--b { animation: botB 5s steps(1) infinite; }
+  .bot.is-open .bot__arm--down, .bot__btn:hover .bot__arm--down { animation: none; opacity: 0; }
+  .bot.is-open .bot__arm--a, .bot__btn:hover .bot__arm--a { animation: botFastA .5s steps(1) infinite; }
+  .bot.is-open .bot__arm--b, .bot__btn:hover .bot__arm--b { animation: botFastB .5s steps(1) infinite; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bot.is-open .bot__arm--down { opacity: 0; }
+  .bot.is-open .bot__arm--a { opacity: 1; }
+}
+@keyframes botBob { 0% { transform: none; } 50% { transform: translateY(-1px); } }
+@keyframes botEyes { 0% { opacity: 1; } 94% { opacity: 0; } 97% { opacity: 1; } }
+@keyframes botBlink { 0% { opacity: 0; } 94% { opacity: 1; } 97% { opacity: 0; } }
+@keyframes botDown { 0% { opacity: 1; } 60% { opacity: 0; } 84% { opacity: 1; } }
+@keyframes botA { 0% { opacity: 0; } 60% { opacity: 1; } 64% { opacity: 0; } 68% { opacity: 1; } 72% { opacity: 0; } 76% { opacity: 1; } 80% { opacity: 0; } 84% { opacity: 0; } }
+@keyframes botB { 0% { opacity: 0; } 64% { opacity: 1; } 68% { opacity: 0; } 72% { opacity: 1; } 76% { opacity: 0; } 80% { opacity: 1; } 84% { opacity: 0; } }
+@keyframes botFastA { 0% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes botFastB { 0% { opacity: 0; } 50% { opacity: 1; } }
+
+/* окно */
+.bot__pop {
+  position: absolute; right: 0; bottom: calc(100% + 12px); width: 312px; max-width: calc(100vw - 24px);
+  background: #fff; color: var(--ink); border-radius: 22px; padding: 22px 20px 18px;
+  box-shadow: 0 24px 60px -18px rgba(11, 11, 12, .35), 0 0 0 1px rgba(11,11,12,.06);
+  opacity: 0; transform: translateY(10px) scale(.97); transform-origin: 85% 100%;
+  transition: opacity .22s, transform .3s var(--ease);
+}
+.bot__pop::after { content: ""; position: absolute; right: 30px; bottom: -8px; width: 16px; height: 16px; background: #fff; transform: rotate(45deg); border-radius: 0 0 4px 0; box-shadow: 4px 4px 6px -3px rgba(11,11,12,.12); }
+.bot.is-open .bot__pop { opacity: 1; transform: none; }
+.bot__close { position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border: 0; border-radius: 50%; background: var(--bg); color: var(--ink-2); font-size: 20px; line-height: 1; cursor: pointer; }
+.bot__close:hover { background: #E6E6E1; color: var(--ink); }
+.bot__hi { font-size: 19px; font-weight: 650; letter-spacing: -.02em; padding-right: 36px; }
+.bot__text { font-size: 14.5px; line-height: 1.45; color: var(--ink-2); margin-top: 6px !important; }
+.bot__form { display: grid; gap: 10px; margin-top: 14px; }
+.bot__form textarea { width: 100%; resize: none; border: 1px solid var(--line); background: var(--bg); border-radius: 14px; padding: 12px 14px; font-size: 15px; outline: none; transition: border-color .2s, background .2s; }
+.bot__form textarea:focus { border-color: var(--accent); background: #fff; }
+.bot__send { width: 100%; min-height: 48px; padding: 0 18px; justify-content: center; gap: 10px; }
+.bot__send svg { width: 20px; height: 20px; flex: none; }
+.bot__note { font-size: 13px; color: #1A8F4A; font-weight: 600; margin-top: 8px !important; }
+.bot__note:empty { display: none; }
+.bot__direct { display: inline-block; margin-top: 10px; font-size: 13.5px; color: var(--accent); }
+.bot__direct:hover { text-decoration: underline; }
+
+@media (max-width: 760px) {
+  .bot__svg { width: 56px; }
+  .bot__tip { font-size: 12px; }
+  body.cookie-open .bot { bottom: 118px; }
+}

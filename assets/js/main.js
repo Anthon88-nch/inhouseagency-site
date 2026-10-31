@@ -206,11 +206,84 @@ let cookieOk = false;
 try { cookieOk = localStorage.getItem('cookie-ok') === '1'; } catch (_) {}
 if (!cookieOk) {
   cookie.hidden = false;
+  document.body.classList.add('cookie-open');
   cookie.querySelector('button').addEventListener('click', () => {
     cookie.hidden = true;
+    document.body.classList.remove('cookie-open');
     try { localStorage.setItem('cookie-ok', '1'); } catch (_) {}
   });
 }
+
+/* Виджет-робот: вопрос в Telegram */
+(() => {
+  const bot = document.getElementById('bot');
+  if (!bot) return;
+  const btn = bot.querySelector('.bot__btn');
+  const pop = bot.querySelector('.bot__pop');
+  const form = bot.querySelector('.bot__form');
+  const area = form.querySelector('textarea');
+  const note = bot.querySelector('.bot__note');
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  let isOpen = false;
+  let closeTimer;
+
+  const open = () => {
+    clearTimeout(closeTimer);
+    if (isOpen) return;
+    isOpen = true;
+    pop.hidden = false;
+    requestAnimationFrame(() => bot.classList.add('is-open', 'was-opened'));
+    btn.setAttribute('aria-expanded', 'true');
+    goal('widget_open');
+  };
+  const close = () => {
+    if (!isOpen) return;
+    isOpen = false;
+    bot.classList.remove('is-open');
+    btn.setAttribute('aria-expanded', 'false');
+    setTimeout(() => { if (!isOpen) pop.hidden = true; }, 250);
+  };
+  // не закрываем, если человек уже печатает
+  const busy = () => pop.contains(document.activeElement) || area.value.trim() !== '';
+
+  if (canHover) {
+    bot.addEventListener('mouseenter', open);
+    bot.addEventListener('mouseleave', () => {
+      closeTimer = setTimeout(() => { if (!busy()) close(); }, 400);
+    });
+  }
+  btn.addEventListener('click', () => {
+    if (!isOpen) { open(); return; }
+    if (!canHover) close();
+  });
+  bot.querySelector('.bot__close').addEventListener('click', () => { close(); btn.focus(); });
+  document.addEventListener('click', (e) => { if (isOpen && !bot.contains(e.target)) close(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isOpen) { close(); btn.focus(); } });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const q = area.value.trim();
+    let url = `https://t.me/${CONFIG.telegram}`;
+    let copied = false;
+    if (q) {
+      const text = `Здравствуйте! ${q}`;
+      url += `?text=${encodeURIComponent(text)}`;
+      copied = await copyText(text);
+    }
+    window.open(url, '_blank', 'noopener');
+    goal('widget_telegram');
+    note.textContent = q && copied
+      ? 'Открыли Telegram. Если текст не подставился — он скопирован, просто вставьте.'
+      : 'Открыли чат в Telegram — напишите, ответим лично.';
+  });
+
+  // подсказка «Есть вопрос?» один раз за визит, через несколько секунд
+  setTimeout(() => {
+    if (isOpen) return;
+    bot.classList.add('is-tip');
+    setTimeout(() => bot.classList.remove('is-tip'), 5000);
+  }, 6000);
+})();
 
 /* Год в подвале */
 document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
