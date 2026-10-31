@@ -175,11 +175,9 @@ button, input, textarea { font: inherit; color: inherit; }
 }
 .hero__title span { display: block; }
 
-.hero__stage { position: absolute; left: 15cqw; top: 31cqw; width: 70cqw; aspect-ratio: 1276 / 674; z-index: 2; }
-.hero__cloud { width: 100%; height: auto; display: block; }
-.hero__person { position: absolute; width: 62%; left: 15%; top: -62%; height: auto; }
-.hero__cloud-front { position: absolute; width: 64%; left: 10%; top: 12%; height: auto; }
-.hero__cta { position: absolute; left: 50%; top: 61%; transform: translateX(-50%); z-index: 3; }
+.hero__stage { position: absolute; left: 14cqw; top: 18cqw; width: 72cqw; aspect-ratio: 1400 / 822; z-index: 2; }
+.hero__photo { width: 100%; height: auto; display: block; filter: drop-shadow(0 30px 40px rgba(20, 60, 110, .18)); }
+.hero__cta { position: absolute; left: 47%; top: 80%; transform: translateX(-50%); z-index: 3; }
 .hero__cta:active { transform: translateX(-50%) scale(.98); }
 
 .btn--lime { background: var(--lime); color: var(--ink); font-weight: 650; padding-left: 28px; box-shadow: 0 18px 40px -18px rgba(40, 70, 10, .55); }
@@ -284,7 +282,7 @@ button, input, textarea { font: inherit; color: inherit; }
 @media (max-width: 1099px) {
   .hero__scene { aspect-ratio: auto; display: flex; flex-direction: column; align-items: center; }
   .hero__title { position: relative; top: 0; font-size: clamp(44px, 12.4vw, 116px); margin-top: 8px; }
-  .hero__stage { position: relative; left: auto; top: auto; width: min(112%, 860px); margin-top: clamp(124px, 27vw, 220px); }
+  .hero__stage { position: relative; left: auto; top: auto; width: min(112%, 860px); margin-top: clamp(6px, 2vw, 22px); }
   .hero__doodle--a { width: clamp(46px, 9vw, 72px); left: 4%; top: auto; bottom: 44%; }
   .hero__doodle--b { width: clamp(40px, 8vw, 64px); right: 6%; top: clamp(150px, 30vw, 260px); }
   .hero__cards {
@@ -302,7 +300,8 @@ button, input, textarea { font: inherit; color: inherit; }
 }
 @media (max-width: 760px) {
   .hero__stage { width: 128%; }
-  .hero__cta { top: 64%; min-height: 50px; font-size: 15px; padding-left: 20px; }
+  .hero__cta { top: 80%; min-height: 50px; font-size: 15px; padding-left: 20px; }
+  .hero__doodle--a { display: none; }
   .hero__cta .btn__ico { width: 36px; height: 36px; }
   .hcard { width: 268px; }
   .hcard--b { width: 280px; }
