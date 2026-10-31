@@ -181,7 +181,8 @@ button, input, textarea { font: inherit; color: inherit; }
 .hero__cta { position: absolute; left: 47%; top: 80%; transform: translateX(-50%); z-index: 3; }
 .hero__cta:active { transform: translateX(-50%) scale(.98); }
 
-.hero__cta.btn--accent { font-weight: 650; padding-left: 28px; box-shadow: 0 18px 40px -16px rgba(1, 90, 200, .65); }
+.hero__cta.btn--dark { font-weight: 650; padding-left: 28px; box-shadow: 0 0 0 4px rgba(255,255,255,.55), 0 20px 40px -14px rgba(5, 20, 45, .65); }
+.hero__cta.btn--dark:hover { background: #1F2024; }
 
 .hero__doodle { position: absolute; z-index: 3; display: block; pointer-events: none; }
 .hero__doodle svg { width: 100%; height: auto; }
