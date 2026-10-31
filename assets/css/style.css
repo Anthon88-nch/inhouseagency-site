@@ -302,8 +302,9 @@ button, input, textarea { font: inherit; color: inherit; }
   .hero__cta { top: 80%; min-height: 50px; font-size: 15px; padding-left: 20px; }
   .hero__doodle--a { display: none; }
   .hero__cta .btn__ico { width: 36px; height: 36px; }
-  .hcard { width: 268px; }
-  .hcard--b { width: 280px; }
+  .hero__cards { flex-direction: column; align-items: stretch; overflow: visible; scroll-snap-type: none; margin: 8px 0 0; padding: 64px 0 0; gap: 12px; }
+  .hcard, .hcard--b { width: 100%; }
+  .hcard--a p { font-size: 15.5px; }
   .hero__side--left { top: 30%; }
   .hero__side--right { top: 44%; }
   .hero__actions .btn { width: 100%; justify-content: space-between; }
